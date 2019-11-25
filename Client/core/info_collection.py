@@ -14,7 +14,12 @@ class InfoCollection(object):
             sys.exit('不支持当前操作系统：[%s]!' % platform.system())
 
     @staticmethod
-    def window():
+    def linux():
+        from plugins.collect_linux_info import collect
+        return collect()
+
+    @staticmethod
+    def windows():
         from plugins.collect_windows_info import Win32Info
         return Win32Info().collect()
 
